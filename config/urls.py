@@ -14,11 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path, include   # include is added here
+from django.urls import path, include
+from pages import views as page_views  # Import views from the pages app
+
+# Use function references (not strings)
+handler404 = page_views.page_not_found_view
+handler500 = page_views.server_error_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),   # points to your app's urls.py
 ]
+
 

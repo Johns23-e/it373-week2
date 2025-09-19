@@ -1,12 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ title }} | Home{% endblock %}
 
 {% block content %}
-    <h1>Welcome!</h1>
-    <ul>
+<section style="max-width: 1000px; margin: 2rem auto; padding: 2rem; text-align: center;">
+    
+
+    <header style="margin-bottom: 2.5rem;">
+        <h1 style="font-size: 3rem; font-weight: 700; color: #222; margin-bottom: 0.5rem;">
+            Welcome!
+        </h1>
+        <p style="font-size: 1.1rem; color: #555;">
+            Explore our key features and discover what makes us unique.
+        </p>
+    </header>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
         {% for item in features %}
-            <li>{{ item }}</li>
+        <div style="background: #f9f9f9; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 0.75rem;">
+                {{ item }}
+            </h3>
+            <p style="font-size: 0.95rem; color: #666;">
+                A short description about <strong>{{ item }}</strong> goes here. Highlight its purpose and benefits.
+            </p>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
+
+    <div style="margin-top: 3rem;">
+        <a href="/about" style="display: inline-block; padding: 0.9rem 1.8rem; background: #4A90E2; color: white; font-weight: 600; border-radius: 8px; text-decoration: none; transition: background 0.3s;">
+            Learn More About Us
+        </a>
+    </div>
+
+
+    
+</section>
 {% endblock %}
